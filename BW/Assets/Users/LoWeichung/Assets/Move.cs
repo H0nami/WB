@@ -4,26 +4,19 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public float speed = 0.05f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        Vector2 position = transform.position;
+        Rigidbody2D PlayerMove = this.GetComponent<Rigidbody2D>();
 
         if (Input.GetKey(KeyCode.A))
         {
-            position.x -= speed;
+            Vector2 force = new Vector2(-3.0f, 0.0f);
+            PlayerMove.AddForce(force, ForceMode2D.Impulse);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            position.x += speed;
+            Vector2 force = new Vector2(3.0f, 0.0f);
+            PlayerMove.AddForce(force, ForceMode2D.Impulse);
         }
-        transform.position = position;
     }
 }

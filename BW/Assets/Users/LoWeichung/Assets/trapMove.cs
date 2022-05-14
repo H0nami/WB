@@ -4,39 +4,29 @@ using UnityEngine;
 
 public class trapMove : MonoBehaviour
 {
-    public float speed = 0.1f;
-
-    private bool isStart = false;
-
     private float _timer;
 
-    void Start()
-    {
-        isStart = true;
-
-        _timer = 0.0f;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (isStart)
+        _timer += Time.deltaTime;
+        Rigidbody2D trapRb = this.GetComponent<Rigidbody2D>();
+        Debug.Log(_timer);
+        if (_timer < 3.0f)
         {
-            _timer += Time.deltaTime;
-            Vector2 position = transform.position;
-            if (_timer <= 5.0f)
-            {
-                position.x -= speed * 5;
-            }
-            else if (_timer > 5.0f)
-            {
-                position.x += speed * 5;
-                if (_timer > 10.0f)
-                {_timer = 0;}
-            }
-            
-            transform.position = position;
+            Vector2 force = new Vector2(-3.0f, 0.0f);
+            trapRb.AddForce(force, ForceMode2D.Impulse);
         }
-        
+        else if (_timer >= 3.0f && _timer < 4.0f)
+        { trapRb.velocity = Vector2.zero; }
+        if (_timer >= 4.0f)
+        {
+            Vector2 force = new Vector2(3.0f, 0.0f);
+            trapRb.AddForce(force, ForceMode2D.Impulse);
+            if (_timer >= 7.0f)
+            {
+                trapRb.velocity = Vector2.zero;
+                _timer = 0.0f;
+            }
+        }
     }
 }
