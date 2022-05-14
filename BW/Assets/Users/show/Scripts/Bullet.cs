@@ -21,7 +21,16 @@ public class Bullet : MonoBehaviour
     public void Move()
     {
         Vector2 bulletPos = transform.position;
-        bulletPos.x += bulletSpeed * Time.deltaTime;
+        bulletPos.x += bulletSpeed *1000* Time.deltaTime;
         transform.position = bulletPos;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Breakable")
+        {
+            Debug.Log("A");
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
