@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Breakable
+  - Floor
   layers:
   - Default
   - TransparentFX
