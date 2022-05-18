@@ -9,7 +9,7 @@ public class MoveFloor : MonoBehaviour
     public int sizeX = 1;
     public int moveX = 3;
     private float moveCount = 0;
-    private int moveDirection = 1;
+    public int moveDirection = 1;
     // Start is called before the first frame update
     void Start()
     {

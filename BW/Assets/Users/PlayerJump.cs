@@ -64,13 +64,18 @@ public class PlayerJump : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        obj = collision;
+        if (obj.gameObject.GetComponent<SpriteRenderer>().color.r + GetComponent<SpriteRenderer>().color.r == 1)
+        {//自分と色が違うなら
+            Debug.Log("色が違う");
+            obj.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            //それの判定をなくす
+        }
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {//触れたとき
-        if (other.gameObject.CompareTag("Floor"))
-        {//床なら
-            obj = other;
+
+            obj = collision;
             if(obj.gameObject.GetComponent<SpriteRenderer>().color.r+ GetComponent<SpriteRenderer>().color.r==1)
             {//自分と色が違うなら
                 Debug.Log("色が違う");
@@ -79,9 +84,25 @@ public class PlayerJump : MonoBehaviour
             }
             else
             {
+
                 jumpCount = 0;
+                if (collision.gameObject.CompareTag("MoveFloor"))
+                {//動く床なら
+                   
+                    transform.SetParent(collision.transform);
+                
+                }
             }
-            
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+       
+        if (collision.gameObject.CompareTag("MoveFloor"))
+        {//動く床なら
+
+            transform.SetParent(null);
+
         }
     }
 

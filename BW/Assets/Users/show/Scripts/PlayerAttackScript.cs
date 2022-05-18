@@ -15,7 +15,7 @@ public class PlayerAttackScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.K))
         {
             PlayerPos = transform.position;
             PlayerPos.x += 1.0f;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 708878396786559058}
   m_Layer: 0
   m_Name: MoveFloor
-  m_TagString: Floor
+  m_TagString: MoveFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeX: 1
   moveX: 3
+  moveDirection: 1

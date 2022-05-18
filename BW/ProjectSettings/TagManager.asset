@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Breakable
   - Floor
+  - MoveFloor
   layers:
   - Default
   - TransparentFX

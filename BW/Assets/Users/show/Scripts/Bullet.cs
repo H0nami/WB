@@ -5,11 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private float bulletSpeed = 5.0f;
+    private float bulletSpeed = 600f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(gameObject, 5);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     public void Move()
     {
         Vector2 bulletPos = transform.position;
-        bulletPos.x += bulletSpeed *1000* Time.deltaTime;
+        bulletPos.x += bulletSpeed*2* Time.deltaTime;
         transform.position = bulletPos;
     }
     void OnTriggerEnter2D(Collider2D collision)
