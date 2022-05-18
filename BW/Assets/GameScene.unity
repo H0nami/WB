@@ -512,6 +512,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 7402364497879412710, guid: 9b4d9b392b3d58d4bb34e23d4903ab24, type: 3}
   moveFloor: {fileID: 8028803710614456511, guid: dfdb068d862f0444d9cddd81dafb8d36, type: 3}
+  floorNum: 1
+  kakuritu: 2
+  stageHole: 1
   stageX: 50
 --- !u!4 &1652034064
 Transform:
