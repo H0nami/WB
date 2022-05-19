@@ -7,7 +7,7 @@ public class Stage : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject floor,moveFloor,wall,next;
+    private GameObject floor,moveFloor,wall,moveWall,next;
 
     private int hole,floorMoveX ,holeRange = 0;
 
@@ -59,6 +59,10 @@ public class Stage : MonoBehaviour
                     if (stageNum >= 4&&Random.Range(0,2)==0)
                     {
                         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+                    }
+                    else if(stageNum>=5&&Random.Range(0,8)==0)
+                    {
+
                     }
                     if(Random.Range(0,10)==0)
                     {
