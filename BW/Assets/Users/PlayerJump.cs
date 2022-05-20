@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerJump : MonoBehaviour
 {
@@ -20,10 +21,14 @@ public class PlayerJump : MonoBehaviour
 
     private bool floorFrag = true;
 
+    Stage stage;
+
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
+
+        stage = new Stage();
     }
 
     void Update()
@@ -58,6 +63,12 @@ public class PlayerJump : MonoBehaviour
             
         }
 
+        if(transform.position.y<-10)
+        {
+            stage.Rese();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+        }
 
     }
 

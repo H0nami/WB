@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Stage : MonoBehaviour
 {
-
+    [SerializeField]
+    private TextMeshProUGUI text;
+    
 
     [SerializeField]
     private GameObject floor,moveFloor,wall,moveWall,next;
@@ -28,18 +32,57 @@ public class Stage : MonoBehaviour
         //stageHole = Random.Range(0, 2);
         Ins();
         Debug.Log(stageNum);
+
+        text.text = ("STAGE" + stageNum);
     }
 
     // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            stageNum = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            stageNum = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            stageNum = 2;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            stageNum = 3;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            stageNum = 4;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    public void Rese()
+    {
+        stageNum = 0;
     }
 
     void Ins()
     {
         for(int i=0;i<=stageX;i++)
         {
+            if (stageNum >= 5 && Random.Range(0, 8) == 0)
+            {
+                Debug.Log("aa");
+                GameObject mwall =
+                 Instantiate(moveWall, new Vector2(-8 + i, -2.5f), Quaternion.identity);
+            }
+
             if (stageNum>=2&&holeRange<5) 
             {//ŒŠ‚ª‚ ‚é‚©‚Ç‚¤‚©‚Ì
                 hole = Random.Range(0, kakuritu);
@@ -60,14 +103,11 @@ public class Stage : MonoBehaviour
                     {
                         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
                     }
-                    else if(stageNum>=5&&Random.Range(0,8)==0)
-                    {
-
-                    }
+                   
                     if(Random.Range(0,10)==0)
                     {
                         GameObject wwall=
-                         Instantiate(wall, new Vector2(-8 + i, 0.5f), Quaternion.identity);
+                         Instantiate(wall, new Vector2(-8 + i,-2f), Quaternion.identity);
 
                     }
                 }
@@ -112,7 +152,7 @@ public class Stage : MonoBehaviour
             Debug.Log(stageX);
             if (i>=stageX)
             {
-                Instantiate(next, new Vector2(-8 + i+4, -5), Quaternion.identity);
+                Instantiate(next, new Vector2(-8 + i+2, -5), Quaternion.identity);
             }
         }
        

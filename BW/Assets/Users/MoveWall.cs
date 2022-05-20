@@ -15,6 +15,9 @@ public class MoveWall : MonoBehaviour
         {
             moveDirection *= -1;
         }
+
+        if (Random.Range(0, 2) == 0)
+            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
     }
 
     // Update is called once per frame
