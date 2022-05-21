@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Users/Toriumi/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/gameoverScene.unity
+    guid: b725661948ae45843bb57c674dcf8ae6
+  - enabled: 1
+    path: Assets/GameScene.unity
+    guid: 277287197ad2ee14e8685993b0a11b6e
+  - enabled: 1
+    path: Assets/Start.unity
+    guid: bec6f0dfc2979f34fa734554d1a50301
   m_configObjects: {}

@@ -66,7 +66,7 @@ public class PlayerJump : MonoBehaviour
         if(transform.position.y<-10)
         {
             stage.Rese();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("gameoverScene");
             
         }
 
